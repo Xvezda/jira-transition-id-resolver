@@ -2,7 +2,8 @@
   "name": "jira-transition-id-resolver",
   "version": "1.0.0",
   "description": "Let you know what transition id is to setup GitLab integration",
-  "main": "cli.js",
+  "main": "./cli.js",
+  "bin": "./cli.js",
   "repository": "git@github.com:Xvezda/jira-transition-id-resolver.git",
   "author": "Xvezda <xvezda@naver.com>",
   "license": "MIT"
