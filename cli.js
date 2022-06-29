@@ -38,6 +38,9 @@ function main() {
           'Content-Type': 'application/json',
         }
       }, (res) => {
+        if (res.statusCode !== 200) {
+          return reject(new Error('wrong authentication'));
+        }
         let data = '';
         res.on('data', (chunk) => {
           data += chunk;
@@ -61,6 +64,10 @@ function main() {
       [...statMap.entries()]
         .forEach(([id, stat]) => console.log(id, stat.name))
     })
-    .catch(console.error);
+    .then(() => process.exit(0))
+    .catch(e => {
+      console.error(e.message);
+      process.exit(1);
+    });
 }
 main();
