@@ -37,12 +37,12 @@ function main() {
           Authorization: `Basic ${cred}`,
           'Content-Type': 'application/json',
         }
-      }, (res) => {
+      }, res => {
         if (res.statusCode !== 200) {
           return reject(new Error('wrong authentication'));
         }
         let data = '';
-        res.on('data', (chunk) => {
+        res.on('data', chunk => {
           data += chunk;
         });
         res.on('end', () => {
@@ -62,7 +62,7 @@ function main() {
     .then(statuses => statuses.reduce((map, s) => map.set(s.id, s), new Map))
     .then(statMap => {
       [...statMap.entries()]
-        .forEach(([id, stat]) => console.log(id, stat.name))
+        .forEach(([id, stat]) => console.log('%d\t%s', id, stat.name));
     })
     .then(() => process.exit(0))
     .catch(e => {
