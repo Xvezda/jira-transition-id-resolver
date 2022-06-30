@@ -1,6 +1,6 @@
 {
   "name": "jira-transition-id-resolver",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Let you know what transition id is to setup GitLab integration",
   "main": "./cli.js",
   "bin": "./cli.js",
